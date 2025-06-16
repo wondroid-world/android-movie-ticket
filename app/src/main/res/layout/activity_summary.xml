@@ -24,4 +24,25 @@
             app:layout_constraintStart_toStartOf="parent" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView_summary_movie_title"
+        style="@style/summaryMovieTitleTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="@string/summary_movie_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout_summary_notification_message_box" />
+
+    <TextView
+        android:id="@+id/textView_summary_movie_screening_date"
+        style="@style/summaryMovieScreeningDateTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/summary_movie_screening_date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView_summary_movie_title" />
+
 </LinearLayout>
