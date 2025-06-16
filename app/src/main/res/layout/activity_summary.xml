@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/summary"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ticket.Summary">
+
+    <LinearLayout
+        android:id="@+id/linearLayout_summary_notification_message_box"
+        android:layout_width="match_parent"
+        android:layout_height="114dp"
+        android:background="@color/purple_400">
+
+        <TextView
+            android:id="@+id/textView_summary_notification_message"
+            style="@style/summaryNotificationMessageTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="66dp"
+            android:text="@string/summary_notification_message"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </LinearLayout>
+</LinearLayout>
