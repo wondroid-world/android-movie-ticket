@@ -9,15 +9,25 @@ import woowacourse.movie.uimodel.MovieUiModel
 
 class MoviesViewHolder(
     private val view: View,
+    private val movies: List<MovieUiModel>,
     private val bookMovie: (MovieUiModel) -> Unit,
 ) {
+    private var position = NO_POSITION
+
+    init {
+        view.findViewById<Button>(R.id.button_main_movie_book).setOnClickListener {
+            bookMovie(movies[position])
+        }
+    }
     private val title = view.findViewById<TextView>(R.id.textView_main_movie_title)
     private val screeningDate = view.findViewById<TextView>(R.id.textView_main_movie_screening_date)
     private val runningTime = view.findViewById<TextView>(R.id.textView_main_movie_running_time)
     private val poster = view.findViewById<ImageView>(R.id.imageView_main_movie_poster)
-    private val button = view.findViewById<Button>(R.id.button_main_movie_book)
 
-    fun bind(movie: MovieUiModel) {
+    fun bind(position: Int) {
+        this.position = position
+        val movie = movies[this.position]
+
         title.text = movie.title
         screeningDate.text = screeningDate.context.getString(
             R.string.movie_screening_date,
@@ -28,8 +38,9 @@ class MoviesViewHolder(
         runningTime.text =
             runningTime.context.getString(R.string.movie_running_time, movie.runningTime)
         movie.posterImage(poster.context).load(poster, poster.context)
-        button.setOnClickListener {
-            bookMovie(movie)
-        }
+    }
+
+    companion object {
+        private const val NO_POSITION: Int = -1
     }
 }

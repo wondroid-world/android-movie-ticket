@@ -35,14 +35,18 @@ class MoviesAdapter(
 
         if (convertView == null) {
             view = LayoutInflater.from(parent.context).inflate(R.layout.item_movie, parent, false)
-            moviesViewHolder = MoviesViewHolder(view, bookMovie)
+            moviesViewHolder = MoviesViewHolder(
+                view = view,
+                movies = movies,
+                bookMovie = bookMovie,
+            )
             view.tag = moviesViewHolder
         } else {
             view = convertView
             moviesViewHolder = view.tag as MoviesViewHolder
         }
 
-        moviesViewHolder.bind(movie)
+        moviesViewHolder.bind(position)
         return view
     }
 }
