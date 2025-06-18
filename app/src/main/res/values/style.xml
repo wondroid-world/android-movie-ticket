@@ -10,6 +10,26 @@
         <item name="android:gravity">start</item>
     </style>
 
+    <!--  Main 페이지  -->
+    <style name="mainMovieTitleTextStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="mainMovieScreeningDateTextStyle">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="mainMovieRunningTimeTextStyle">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="mainMovieBookButtonTextStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
     <!--  Summary 페이지  -->
     <style name="summaryNotificationMessageTextStyle">
         <item name="android:textSize">15sp</item>
