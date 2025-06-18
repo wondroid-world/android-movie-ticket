@@ -5,7 +5,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import woowacourse.movie.ticket.Summary
+import woowacourse.movie.view.ticket.Summary
 import woowacourse.movie.intentmodel.MovieIntentModel
 import java.time.LocalDate
 

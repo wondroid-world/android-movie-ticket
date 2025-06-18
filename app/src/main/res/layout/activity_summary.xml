@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ticket.Summary">
+    tools:context=".view.ticket.Summary">
 
     <LinearLayout
         android:id="@+id/linearLayout_summary_notification_message_box"

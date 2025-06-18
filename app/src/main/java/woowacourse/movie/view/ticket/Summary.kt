@@ -1,4 +1,4 @@
-package woowacourse.movie.ticket
+package woowacourse.movie.view.ticket
 
 import android.content.Context
 import android.content.Intent
