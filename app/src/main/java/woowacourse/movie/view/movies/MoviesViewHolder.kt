@@ -19,6 +19,7 @@ class MoviesViewHolder(
             bookMovie(movies[position])
         }
     }
+
     private val title = view.findViewById<TextView>(R.id.textView_main_movie_title)
     private val screeningDate = view.findViewById<TextView>(R.id.textView_main_movie_screening_date)
     private val runningTime = view.findViewById<TextView>(R.id.textView_main_movie_running_time)
@@ -29,15 +30,19 @@ class MoviesViewHolder(
         val movie = movies[this.position]
 
         title.text = movie.title
-        screeningDate.text = screeningDate.context.getString(
-            R.string.movie_screening_date,
-            movie.screeningDate.year,
-            movie.screeningDate.monthValue,
-            movie.screeningDate.dayOfMonth
-        )
+        screeningDate.text =
+            screeningDate.context.getString(
+                R.string.movie_screening_date,
+                movie.screeningDate.year,
+                movie.screeningDate.monthValue,
+                movie.screeningDate.dayOfMonth,
+            )
         runningTime.text =
             runningTime.context.getString(R.string.movie_running_time, movie.runningTime)
         movie.posterImage(poster.context).load(poster, poster.context)
+        view.findViewById<Button>(R.id.button_main_movie_book).setOnClickListener {
+            bookMovie(movies[position])
+        }
     }
 
     companion object {

@@ -4,9 +4,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
 import woowacourse.movie.R
 import woowacourse.movie.uimodel.MovieUiModel
 
@@ -27,7 +24,7 @@ class MoviesAdapter(
     override fun getView(
         position: Int,
         convertView: View?,
-        parent: ViewGroup
+        parent: ViewGroup,
     ): View {
         val movie = getItem(position)
         val view: View
@@ -35,11 +32,12 @@ class MoviesAdapter(
 
         if (convertView == null) {
             view = LayoutInflater.from(parent.context).inflate(R.layout.item_movie, parent, false)
-            moviesViewHolder = MoviesViewHolder(
-                view = view,
-                movies = movies,
-                bookMovie = bookMovie,
-            )
+            moviesViewHolder =
+                MoviesViewHolder(
+                    view = view,
+                    movies = movies,
+                    bookMovie = bookMovie,
+                )
             view.tag = moviesViewHolder
         } else {
             view = convertView
@@ -50,5 +48,3 @@ class MoviesAdapter(
         return view
     }
 }
-
-

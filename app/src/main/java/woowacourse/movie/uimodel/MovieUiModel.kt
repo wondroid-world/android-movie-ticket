@@ -32,5 +32,3 @@ data class MovieUiModel(
         private const val DEFAULT_TYPE: String = "drawable"
     }
 }
-
-

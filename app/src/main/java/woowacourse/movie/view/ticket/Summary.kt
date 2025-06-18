@@ -29,9 +29,13 @@ class Summary : AppCompatActivity() {
     companion object {
         private const val SUMMARY_INTENT_KEY = "summary"
 
-        fun intent(context: Context, movie: MovieIntentModel): Intent {
-            val intent = Intent(context, Summary::class.java)
-                .putExtra(SUMMARY_INTENT_KEY, movie)
+        fun intent(
+            context: Context,
+            movie: MovieIntentModel,
+        ): Intent {
+            val intent =
+                Intent(context, Summary::class.java)
+                    .putExtra(SUMMARY_INTENT_KEY, movie)
             return intent
         }
     }
