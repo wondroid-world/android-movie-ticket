@@ -29,28 +29,22 @@ class MoviesAdapter(
         convertView: View?,
         parent: ViewGroup
     ): View {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_movie, parent, false)
         val movie = getItem(position)
+        val view: View
+        val moviesViewHolder: MoviesViewHolder
 
-        val title = view.findViewById<TextView>(R.id.textView_main_movie_title)
-        val screeningDate = view.findViewById<TextView>(R.id.textView_main_movie_screening_date)
-        val runningTime = view.findViewById<TextView>(R.id.textView_main_movie_running_time)
-        val poster = view.findViewById<ImageView>(R.id.imageView_main_movie_poster)
-        val button = view.findViewById<Button>(R.id.button_main_movie_book)
-        title.text = movie.title
-        screeningDate.text = parent.context.getString(
-            R.string.movie_screening_date,
-            movie.screeningDate.year,
-            movie.screeningDate.monthValue,
-            movie.screeningDate.dayOfMonth
-        )
-        runningTime.text =
-            parent.context.getString(R.string.movie_running_time, movie.runningTime)
-        movie.posterImage(parent.context).load(poster, parent.context)
-        button.setOnClickListener {
-            bookMovie(movie)
+        if (convertView == null) {
+            view = LayoutInflater.from(parent.context).inflate(R.layout.item_movie, parent, false)
+            moviesViewHolder = MoviesViewHolder(view, bookMovie)
+            view.tag = moviesViewHolder
+        } else {
+            view = convertView
+            moviesViewHolder = view.tag as MoviesViewHolder
         }
 
+        moviesViewHolder.bind(movie)
         return view
     }
 }
+
+
