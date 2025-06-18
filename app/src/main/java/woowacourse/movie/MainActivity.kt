@@ -5,6 +5,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import woowacourse.movie.dummy.Dummy
 import woowacourse.movie.view.ticket.Summary
 import woowacourse.movie.intentmodel.MovieIntentModel
 import java.time.LocalDate
@@ -13,12 +14,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initView()
-        val movieUiModel = MovieIntentModel(
-            name = "해리포터와 마법사의 돌",
-            screeningDate = LocalDate.of(2025, 4, 1)
+        val movieIntentModel = MovieIntentModel(
+            name = Dummy.data[0].title,
+            screeningDate = Dummy.data[0].screeningDate
         )
-        val intent = Summary.intent(this, movieUiModel)
-        startActivity(intent)
+        moveOtherView(movieIntentModel)
     }
 
     private fun initView() {
@@ -29,5 +29,10 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+    }
+
+    private fun moveOtherView(movieIntentModel: MovieIntentModel) {
+        val intent = Summary.intent(this, movieIntentModel)
+        startActivity(intent)
     }
 }
