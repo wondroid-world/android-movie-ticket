@@ -4,6 +4,7 @@ import android.content.Context
 import java.time.LocalDate
 
 data class MovieUiModel(
+    val id: Long,
     val title: String,
     val poster: String,
     val screeningDate: LocalDate,

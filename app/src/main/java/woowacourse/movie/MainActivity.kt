@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         initView()
         val movieIntentModel = MovieIntentModel(
+            id = Dummy.data[0].id,
             name = Dummy.data[0].title,
             screeningDate = Dummy.data[0].screeningDate
         )
