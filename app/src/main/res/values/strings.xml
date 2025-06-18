@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Movie</string>
+
+    <string name="movie_running_time">러닝타임: %d분</string>
+    <string name="movie_screening_date">상영일: %d.%d.%d</string>
+
     <string name="summary_movie_screening_date">2025.4.1</string>
     <string name="summary_movie_title">해리 포터와 마법사의 돌</string>
     <string name="summary_notification_message">영화 상영 시작 시간 15분 전까지\n취소가 가능합니다.</string>
