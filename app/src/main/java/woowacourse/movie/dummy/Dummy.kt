@@ -8,7 +8,7 @@ object Dummy {
     val data: List<Movie> = listOf(
         Movie(
             title = "해리 포터와 마법사의 돌",
-            poster = R.drawable.harry_potter_and_the_sorcerers_stone,
+            poster = "harry_potter_and_the_sorcerers_stone",
             screeningDate = LocalDate.of(2025, 4, 1),
             runningTime = 152
         )
