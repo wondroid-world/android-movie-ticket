@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import woowacourse.movie.ticket.Summary
-import woowacourse.movie.uiModel.MovieIntentModel
+import woowacourse.movie.intentmodel.MovieIntentModel
 import java.time.LocalDate
 
 class MainActivity : AppCompatActivity() {

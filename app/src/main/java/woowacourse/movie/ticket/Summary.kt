@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import woowacourse.movie.R
-import woowacourse.movie.uiModel.MovieIntentModel
+import woowacourse.movie.intentmodel.MovieIntentModel
 
 class Summary : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
