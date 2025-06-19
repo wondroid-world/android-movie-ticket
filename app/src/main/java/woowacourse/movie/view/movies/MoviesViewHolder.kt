@@ -21,7 +21,7 @@ class MoviesViewHolder(
     }
 
     private val title = view.findViewById<TextView>(R.id.textView_main_movie_title)
-    private val screeningDate = view.findViewById<TextView>(R.id.textView_main_movie_screening_date)
+    private val screeningPeriod = view.findViewById<TextView>(R.id.textView_main_movie_screening_period)
     private val runningTime = view.findViewById<TextView>(R.id.textView_main_movie_running_time)
     private val poster = view.findViewById<ImageView>(R.id.imageView_main_movie_poster)
 
@@ -30,12 +30,15 @@ class MoviesViewHolder(
         val movie = movies[this.position]
 
         title.text = movie.title
-        screeningDate.text =
-            screeningDate.context.getString(
+        screeningPeriod.text =
+            screeningPeriod.context.getString(
                 R.string.movie_screening_date,
-                movie.screeningDate.year,
-                movie.screeningDate.monthValue,
-                movie.screeningDate.dayOfMonth,
+                movie.screeningPeriod.start.year,
+                movie.screeningPeriod.start.monthValue,
+                movie.screeningPeriod.start.dayOfMonth,
+                movie.screeningPeriod.end.year,
+                movie.screeningPeriod.end.monthValue,
+                movie.screeningPeriod.end.dayOfMonth,
             )
         runningTime.text =
             runningTime.context.getString(R.string.movie_running_time, movie.runningTime)

@@ -34,7 +34,7 @@ class MoviesActivityTest {
                     id = movie.id,
                     title = movie.title,
                     poster = movie.poster,
-                    screeningDate = movie.screeningDate,
+                    screeningPeriod = movie.screeningPeriod,
                     runningTime = movie.runningTime,
                 )
             }[0]
@@ -43,14 +43,17 @@ class MoviesActivityTest {
         onData(`is`(movie))
             .onChildView(withId(R.id.textView_main_movie_title))
             .check(matches(withText(movie.title)))
-        onData(`is`(movie)).onChildView(withId(R.id.textView_main_movie_screening_date)).check(
+        onData(`is`(movie)).onChildView(withId(R.id.textView_main_movie_screening_period)).check(
             matches(
                 withText(
                     context.getString(
                         R.string.movie_screening_date,
-                        movie.screeningDate.year,
-                        movie.screeningDate.monthValue,
-                        movie.screeningDate.dayOfMonth,
+                        movie.screeningPeriod.start.year,
+                        movie.screeningPeriod.start.monthValue,
+                        movie.screeningPeriod.start.dayOfMonth,
+                        movie.screeningPeriod.end.year,
+                        movie.screeningPeriod.end.monthValue,
+                        movie.screeningPeriod.end.dayOfMonth,
                     ),
                 ),
             ),

@@ -2,7 +2,7 @@
     <string name="app_name">Movie</string>
 
     <string name="movie_running_time">러닝타임: %d분</string>
-    <string name="movie_screening_date">상영일: %d.%d.%d</string>
+    <string name="movie_screening_date">상영일: %d.%d.%d ~ %d.%d.%d</string>
 
     <string name="summary_movie_screening_date">2025.4.1</string>
     <string name="summary_movie_title">해리 포터와 마법사의 돌</string>

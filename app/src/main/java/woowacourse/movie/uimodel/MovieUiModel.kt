@@ -1,13 +1,13 @@
 package woowacourse.movie.uimodel
 
 import android.content.Context
-import java.time.LocalDate
+import woowacourse.movie.domain.ScreeningPeriod
 
 data class MovieUiModel(
     val id: Long,
     val title: String,
     private val poster: String,
-    val screeningDate: LocalDate,
+    val screeningPeriod: ScreeningPeriod,
     val runningTime: Int,
 ) {
     fun posterImage(context: Context): Poster {
