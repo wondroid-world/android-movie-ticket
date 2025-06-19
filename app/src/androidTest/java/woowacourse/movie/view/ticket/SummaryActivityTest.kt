@@ -21,7 +21,7 @@ class SummaryActivityTest {
         val intent =
             SummaryActivity.intent(
                 context = ApplicationProvider.getApplicationContext<Context>(),
-                movie = MovieFixture.movieIntentModel,
+                summary = MovieFixture.summaryIntentModel,
             )
         ActivityScenario.launch<SummaryActivity>(intent)
     }
@@ -40,22 +40,51 @@ class SummaryActivityTest {
 
     @Test
     fun 예약_정보가_표시된다() {
+        val context = ApplicationProvider.getApplicationContext<Context>()
+
         onView(withId(R.id.textView_summary_movie_title))
             .check(
                 matches(
                     withText(
-                        MovieFixture.SUMMARY_MOVIE_TITLE,
+                        MovieFixture.summaryIntentModel.title,
                     ),
                 ),
             )
-        onView(withId(R.id.textView_summary_movie_screening_date))
+        onView(withId(R.id.textView_summary_movie_screening_date_time))
             .check(
                 matches(
                     withText(
-                        MovieFixture.SUMMARY_MOVIE_SCREENING_DATE,
+                        context.getString(
+                            R.string.summary_movie_screening_date_time,
+                            MovieFixture.summaryIntentModel.screeningDateTime.year,
+                            MovieFixture.summaryIntentModel.screeningDateTime.monthValue,
+                            MovieFixture.summaryIntentModel.screeningDateTime.dayOfMonth,
+                            MovieFixture.summaryIntentModel.screeningDateTime.hour,
+                            MovieFixture.summaryIntentModel.screeningDateTime.minute,
+                        ),
                     ),
                 ),
             )
+        onView(withId(R.id.textView_summary_movie_people_count)).check(
+            matches(
+                withText(
+                    context.getString(
+                        R.string.summary_movie_people_count,
+                        MovieFixture.summaryIntentModel.peopleCount,
+                    ),
+                ),
+            ),
+        )
+        onView(withId(R.id.textView_summary_movie_total_amount)).check(
+            matches(
+                withText(
+                    context.getString(
+                        R.string.summary_movie_total_amount,
+                        MovieFixture.summaryIntentModel.totalAmount,
+                    ),
+                ),
+            ),
+        )
     }
 
     companion object {
