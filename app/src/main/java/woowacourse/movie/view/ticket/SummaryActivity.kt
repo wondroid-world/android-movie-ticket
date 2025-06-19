@@ -10,7 +10,7 @@ import androidx.core.view.WindowInsetsCompat
 import woowacourse.movie.R
 import woowacourse.movie.intentmodel.MovieIntentModel
 
-class Summary : AppCompatActivity() {
+class SummaryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initView()
@@ -34,7 +34,7 @@ class Summary : AppCompatActivity() {
             movie: MovieIntentModel,
         ): Intent {
             val intent =
-                Intent(context, Summary::class.java)
+                Intent(context, SummaryActivity::class.java)
                     .putExtra(SUMMARY_INTENT_KEY, movie)
             return intent
         }
