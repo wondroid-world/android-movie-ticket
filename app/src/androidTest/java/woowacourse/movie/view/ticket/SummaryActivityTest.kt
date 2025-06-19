@@ -44,7 +44,7 @@ class SummaryActivityTest {
             .check(
                 matches(
                     withText(
-                        MovieFixture.MOVIE_TITLE,
+                        MovieFixture.SUMMARY_MOVIE_TITLE,
                     ),
                 ),
             )
@@ -52,7 +52,7 @@ class SummaryActivityTest {
             .check(
                 matches(
                     withText(
-                        MovieFixture.MOVIE_SCREENING_DATE,
+                        MovieFixture.SUMMARY_MOVIE_SCREENING_DATE,
                     ),
                 ),
             )
