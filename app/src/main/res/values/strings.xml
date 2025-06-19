@@ -14,4 +14,10 @@
     <string name="summary_movie_screening_date_time">%d.%d.%d %d:%d</string>
     <string name="summary_movie_people_count">일반 %d명</string>
     <string name="summary_movie_total_amount">%,d원 (현장 결제)</string>
+
+    <!--  영화 예매 - 확인  -->
+    <string name="ticketing_minus_people_count">-</string>
+    <string name="ticketing_plus_people_count">+</string>
+    <string name="ticketing_movie_selected">선택 완료</string>
+    <string name="ticketing_movie_poster_content_description">영화 포스터입니다</string>
 </resources>

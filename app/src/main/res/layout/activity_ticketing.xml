@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ticketing"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.ticket.TicketingActivity">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView_ticketing_movie_poster"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:contentDescription="@string/ticketing_movie_poster_content_description"
+                android:scaleType="centerCrop"
+                app:layout_constraintDimensionRatio="H,16:18"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/harry_potter_and_the_sorcerers_stone" />
+
+            <TextView
+                android:id="@+id/textView_ticketing_movie_title"
+                style="@style/TicketingMovieTitleTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="21dp"
+                android:layout_marginTop="27dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageView_ticketing_movie_poster"
+                tools:text="해리 포터와 마법사의 돌" />
+
+            <TextView
+                android:id="@+id/textView_ticketing_movie_screening_period"
+                style="@style/TicketingMovieScreeningPeriodTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="29dp"
+                app:layout_constraintStart_toStartOf="@id/textView_ticketing_movie_title"
+                app:layout_constraintTop_toBottomOf="@id/textView_ticketing_movie_title"
+                tools:text="상영일: 2025.4.1 ~ 2025.4.25" />
+
+            <TextView
+                android:id="@+id/textView_ticketing_movie_running_time"
+                style="@style/TicketingMovieRunningTimeTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/textView_ticketing_movie_title"
+                app:layout_constraintTop_toBottomOf="@id/textView_ticketing_movie_screening_period"
+                tools:text="러닝타임: 152분" />
+
+            <Spinner
+                android:id="@+id/spinner_ticketing_movie_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                app:layout_constraintDimensionRatio="w,1:0.15"
+                app:layout_constraintStart_toStartOf="@id/textView_ticketing_movie_title"
+                app:layout_constraintTop_toBottomOf="@id/textView_ticketing_movie_running_time" />
+
+            <Spinner
+                android:id="@+id/spinner_ticketing_movie_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                app:layout_constraintDimensionRatio="w, 1:0.15"
+                app:layout_constraintEnd_toEndOf="@id/textView_ticketing_movie_title"
+                app:layout_constraintTop_toBottomOf="@id/textView_ticketing_movie_running_time" />
+
+            <Button
+                android:id="@+id/button_ticketing_minus_people_count"
+                style="@style/TicketingButtonTextStyle"
+                android:layout_width="65dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="40dp"
+                android:text="@string/ticketing_minus_people_count"
+                app:layout_constraintStart_toStartOf="@id/textView_ticketing_movie_title"
+                app:layout_constraintTop_toBottomOf="@id/spinner_ticketing_movie_date" />
+
+            <TextView
+                android:id="@+id/textView_ticketing_movie_people_count"
+                style="@style/TicketingMoviePeopleCountTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@id/button_ticketing_minus_people_count"
+                app:layout_constraintEnd_toStartOf="@id/button_ticketing_plus_people_count"
+                app:layout_constraintStart_toEndOf="@id/button_ticketing_minus_people_count"
+                app:layout_constraintTop_toTopOf="@id/button_ticketing_minus_people_count"
+                tools:text="2" />
+
+            <Button
+                android:id="@+id/button_ticketing_plus_people_count"
+                style="@style/TicketingButtonTextStyle"
+                android:layout_width="65dp"
+                android:layout_height="55dp"
+                android:text="@string/ticketing_plus_people_count"
+                app:layout_constraintEnd_toEndOf="@id/textView_ticketing_movie_title"
+                app:layout_constraintTop_toTopOf="@id/button_ticketing_minus_people_count" />
+
+            <Button
+                android:id="@+id/button_ticketing_movie_selected"
+                style="@style/TicketingMovieSelectedButtonTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginHorizontal="21dp"
+                android:layout_marginTop="12dp"
+                android:text="@string/ticketing_movie_selected"
+                app:layout_constraintStart_toStartOf="@id/textView_ticketing_movie_title"
+                app:layout_constraintTop_toBottomOf="@id/button_ticketing_plus_people_count" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
