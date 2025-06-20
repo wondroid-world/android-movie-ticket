@@ -84,7 +84,7 @@
                 style="@style/TicketingButtonTextStyle"
                 android:layout_width="65dp"
                 android:layout_height="55dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="20dp"
                 android:text="@string/ticketing_minus_people_count"
                 app:layout_constraintStart_toStartOf="@id/textView_ticketing_movie_title"
                 app:layout_constraintTop_toBottomOf="@id/spinner_ticketing_movie_date" />
