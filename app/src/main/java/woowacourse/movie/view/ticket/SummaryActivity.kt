@@ -22,6 +22,20 @@ class SummaryActivity : AppCompatActivity() {
                 SUMMARY_INTENT_KEY,
                 SummaryIntentModel::class,
             )
+        bind(summary)
+    }
+
+    private fun initView() {
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_summary)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.summary)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+    }
+
+    private fun bind(summary: SummaryIntentModel) {
         val title = findViewById<TextView>(R.id.textView_summary_movie_title)
         val screeningDateTime =
             findViewById<TextView>(R.id.textView_summary_movie_screening_date_time)
@@ -42,16 +56,6 @@ class SummaryActivity : AppCompatActivity() {
             peopleCount.context.getString(R.string.summary_movie_people_count, summary.peopleCount)
         totalAmount.text =
             totalAmount.context.getString(R.string.summary_movie_total_amount, summary.totalAmount)
-    }
-
-    private fun initView() {
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_summary)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.summary)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
     }
 
     companion object {
