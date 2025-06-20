@@ -13,8 +13,8 @@ object Dummy {
                 poster = "harry_potter_and_the_sorcerers_stone",
                 screeningPeriod =
                     ScreeningPeriod(
-                        LocalDate.of(2025, 4, 1),
-                        LocalDate.of(2025, 4, 25),
+                        LocalDate.of(2025, 6, 1),
+                        LocalDate.of(2025, 6, 25),
                     ),
                 runningTime = 152,
             ),
