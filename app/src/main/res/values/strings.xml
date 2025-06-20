@@ -20,4 +20,9 @@
     <string name="ticketing_plus_people_count">+</string>
     <string name="ticketing_movie_selected">선택 완료</string>
     <string name="ticketing_movie_poster_content_description">영화 포스터입니다</string>
+    <string name="ticketing_reservation_check">예매 확인</string>
+    <string name="ticketing_reservation_message">정말 예매하시겠습니까?</string>
+    <string name="ticketing_reservation_complete">예매 완료</string>
+    <string name="ticketing_reservation_cancel">취소</string>
+    <string name="ticketing_people_count_minimum">영화 관람 인원이 최소 1명이상이어야 합니다.</string>
 </resources>

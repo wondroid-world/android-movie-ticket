@@ -21,7 +21,7 @@ import woowacourse.movie.util.BuildVersion
 import java.time.LocalDateTime
 
 class TicketingActivity : AppCompatActivity() {
-    private var count: Int = 1
+    private var count: Int = PEOPLE_COUNT_DEFAULT_VALUE
     private lateinit var ticketingIntentModel: TicketingIntentModel
     private lateinit var movie: MovieUiModel
 
@@ -76,12 +76,18 @@ class TicketingActivity : AppCompatActivity() {
         peopleCount.text = count.toString()
         minusPeopleCount.setOnClickListener {
             when {
-                (count > 1) -> {
+                (count > PEOPLE_COUNT_DEFAULT_VALUE) -> {
                     count--
                     peopleCount.text = count.toString()
                 }
 
-                else -> Toast.makeText(this, "영화 관람 인원이 최소 1명이상이어야 합니다.", Toast.LENGTH_LONG).show()
+                else ->
+                    Toast
+                        .makeText(
+                            this,
+                            getString(R.string.ticketing_people_count_minimum),
+                            Toast.LENGTH_LONG,
+                        ).show()
             }
         }
         plusPeopleCount.setOnClickListener {
@@ -91,9 +97,9 @@ class TicketingActivity : AppCompatActivity() {
         selectedMovie.setOnClickListener {
             AlertDialog
                 .Builder(this)
-                .setTitle("예매 확인")
-                .setMessage("정말 예매하시겠습니까?")
-                .setPositiveButton("예매 완료") { _, _ ->
+                .setTitle(getString(R.string.ticketing_reservation_check))
+                .setMessage(getString(R.string.ticketing_reservation_message))
+                .setPositiveButton(getString(R.string.ticketing_reservation_complete)) { _, _ ->
                     val summary =
                         SummaryIntentModel(
                             id = movie.id,
@@ -104,7 +110,7 @@ class TicketingActivity : AppCompatActivity() {
                         )
                     val intent = SummaryActivity.intent(this, summary)
                     startActivity(intent)
-                }.setNegativeButton("취소") { dialog, _ -> dialog.dismiss() }
+                }.setNegativeButton(getString(R.string.ticketing_reservation_cancel)) { dialog, _ -> dialog.dismiss() }
                 .show()
         }
     }
@@ -120,6 +126,7 @@ class TicketingActivity : AppCompatActivity() {
     }
 
     companion object {
+        private const val PEOPLE_COUNT_DEFAULT_VALUE: Int = 1
         private const val TICKETING_INTENT_KEY: String = "ticketing"
 
         fun intent(
