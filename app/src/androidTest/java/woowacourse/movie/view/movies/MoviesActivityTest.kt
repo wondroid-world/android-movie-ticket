@@ -77,17 +77,17 @@ class MoviesActivityTest {
     }
 
     @Test
-    fun 지금_예매를_클릭하면_영화_예매_안내_멘트가_보인다() {
+    fun 지금_예매를_클릭하면_선택_완료_버튼이_보인다() {
         // when: 사용자가 지금 예매 버튼을 클릭하면
         onView(withId(R.id.button_main_movie_book))
             .perform(click())
 
-        // then: 화면에 안내 멘트가 표시된다
-        onView(withId(R.id.textView_summary_notification_message))
-            .check(matches(withText(SUMMARY_NOTIFICATION_MESSAGE)))
+        // then: 화면에 선택 완료 버튼이 표시된다
+        onView(withId(R.id.button_ticketing_movie_selected))
+            .check(matches(withText(TICKETING_MOVIE_SELECTED)))
     }
 
     companion object {
-        private const val SUMMARY_NOTIFICATION_MESSAGE: String = "영화 상영 시작 시간 15분 전까지\n취소가 가능합니다."
+        private const val TICKETING_MOVIE_SELECTED: String = "선택 완료"
     }
 }
