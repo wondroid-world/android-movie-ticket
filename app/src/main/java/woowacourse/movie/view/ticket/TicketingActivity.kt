@@ -22,30 +22,30 @@ import java.time.LocalDateTime
 
 class TicketingActivity : AppCompatActivity() {
     private var count: Int = PEOPLE_COUNT_DEFAULT_VALUE
-    private lateinit var ticketingIntentModel: TicketingIntentModel
-    private lateinit var movie: MovieUiModel
+    private val ticketingIntentModel: TicketingIntentModel by lazy {
+        BuildVersion().getParcelableClass(
+            intent,
+            TICKETING_INTENT_KEY,
+            TicketingIntentModel::class,
+        )
+    }
+    private val movie: MovieUiModel by lazy {
+        MovieUiModel(
+            id = ticketingIntentModel.id,
+            title = ticketingIntentModel.title,
+            poster = ticketingIntentModel.poster,
+            screeningPeriod =
+                ScreeningPeriod(
+                    ticketingIntentModel.screeningPeriod.start,
+                    ticketingIntentModel.screeningPeriod.end,
+                ),
+            runningTime = ticketingIntentModel.runningTime,
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initView()
-        ticketingIntentModel =
-            BuildVersion().getParcelableClass(
-                intent,
-                TICKETING_INTENT_KEY,
-                TicketingIntentModel::class,
-            )
-        movie =
-            MovieUiModel(
-                id = ticketingIntentModel.id,
-                title = ticketingIntentModel.title,
-                poster = ticketingIntentModel.poster,
-                screeningPeriod =
-                    ScreeningPeriod(
-                        ticketingIntentModel.screeningPeriod.start,
-                        ticketingIntentModel.screeningPeriod.end,
-                    ),
-                runningTime = ticketingIntentModel.runningTime,
-            )
         bindData()
     }
 
