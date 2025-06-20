@@ -15,10 +15,8 @@ class MoviesAdapter(
 
     override fun getItem(position: Int): MovieUiModel = movies[position]
 
-    // ListView는 내부적으로 아이템을 구분할 때 이 ID를 기준으로 처리
     override fun getItemId(position: Int): Long = movies[position].id
 
-    // 리스트 순서가 바뀌어도 아이다가 그대로임을 보장 -> ListView는 그대로 재사용함
     override fun hasStableIds(): Boolean = true
 
     override fun getView(
