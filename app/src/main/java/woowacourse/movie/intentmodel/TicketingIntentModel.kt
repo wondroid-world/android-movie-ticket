@@ -4,25 +4,31 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class MovieIntentModel(
+data class TicketingIntentModel(
     val id: Long,
-    val name: String,
+    val title: String,
+    val poster: String,
     val screeningPeriod: ScreeningPeriod,
+    val runningTime: Int,
 ) : Parcelable {
     companion object {
         fun of(
             id: Long,
-            name: String,
+            title: String,
+            poster: String,
             screeningPeriod: woowacourse.movie.domain.ScreeningPeriod,
-        ): MovieIntentModel =
-            MovieIntentModel(
+            runningTime: Int,
+        ): TicketingIntentModel =
+            TicketingIntentModel(
                 id = id,
-                name = name,
+                title = title,
+                poster = poster,
                 screeningPeriod =
                     ScreeningPeriod(
                         screeningPeriod.start,
                         screeningPeriod.end,
                     ),
+                runningTime = runningTime,
             )
     }
 }

@@ -6,7 +6,7 @@ import woowacourse.movie.domain.ScreeningPeriod
 data class MovieUiModel(
     val id: Long,
     val title: String,
-    private val poster: String,
+    val poster: String,
     val screeningPeriod: ScreeningPeriod,
     val runningTime: Int,
 ) {
