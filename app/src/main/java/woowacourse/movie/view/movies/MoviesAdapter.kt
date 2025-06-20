@@ -26,7 +26,6 @@ class MoviesAdapter(
         convertView: View?,
         parent: ViewGroup,
     ): View {
-        val movie = getItem(position)
         val view: View
         val moviesViewHolder: MoviesViewHolder
 
