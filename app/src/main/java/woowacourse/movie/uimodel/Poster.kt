@@ -5,9 +5,13 @@ import android.widget.ImageView
 import com.bumptech.glide.Glide
 
 sealed class Poster {
-    data class Drawable(val resId: Int) : Poster()
+    data class Drawable(
+        val resId: Int,
+    ) : Poster()
 
-    data class Remote(val url: String) : Poster()
+    data class Remote(
+        val url: String,
+    ) : Poster()
 
     fun load(
         imageView: ImageView,

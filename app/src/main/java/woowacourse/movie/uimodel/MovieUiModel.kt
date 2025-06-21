@@ -10,8 +10,8 @@ data class MovieUiModel(
     val screeningPeriod: ScreeningPeriod,
     val runningTime: Int,
 ) {
-    fun posterImage(context: Context): Poster {
-        return when (isDrawable(context)) {
+    fun posterImage(context: Context): Poster =
+        when (isDrawable(context)) {
             true -> {
                 val resId =
                     context.resources.getIdentifier(this.poster, DEFAULT_TYPE, context.packageName)
@@ -20,7 +20,6 @@ data class MovieUiModel(
 
             false -> Poster.Remote(this.poster)
         }
-    }
 
     private fun isDrawable(context: Context): Boolean {
         val resId = context.resources.getIdentifier(this.poster, DEFAULT_TYPE, context.packageName)
