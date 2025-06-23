@@ -13,10 +13,10 @@
         android:theme="@style/Theme.Movie"
         tools:targetApi="31">
         <activity
-            android:name=".view.ticket.TicketingActivity"
+            android:name=".view.ticket.ticketing.TicketingActivity"
             android:exported="false" />
         <activity
-            android:name=".view.ticket.SummaryActivity"
+            android:name=".view.ticket.summary.SummaryActivity"
             android:exported="false"
             android:parentActivityName=".view.movies.MoviesActivity" />
         <activity

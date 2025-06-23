@@ -1,4 +1,4 @@
-package woowacourse.movie.view.ticket
+package woowacourse.movie.view.ticket.summary
 
 import android.content.Context
 import android.content.Intent
@@ -10,9 +10,14 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import woowacourse.movie.R
 import woowacourse.movie.intentmodel.SummaryIntentModel
+import woowacourse.movie.uimodel.SummaryUiModel
 import woowacourse.movie.util.BuildVersion
 
-class SummaryActivity : AppCompatActivity() {
+class SummaryActivity :
+    AppCompatActivity(),
+    SummaryContract.View {
+    private val presenter: SummaryContract.Presenter by lazy { SummaryPresenter(this) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initView()
@@ -22,7 +27,7 @@ class SummaryActivity : AppCompatActivity() {
                 SUMMARY_INTENT_KEY,
                 SummaryIntentModel::class,
             )
-        bind(summary)
+        presenter.getData(summary)
     }
 
     private fun initView() {
@@ -35,7 +40,7 @@ class SummaryActivity : AppCompatActivity() {
         }
     }
 
-    private fun bind(summary: SummaryIntentModel) {
+    override fun showData(summary: SummaryUiModel) {
         val title = findViewById<TextView>(R.id.textView_summary_movie_title)
         val screeningDateTime =
             findViewById<TextView>(R.id.textView_summary_movie_screening_date_time)

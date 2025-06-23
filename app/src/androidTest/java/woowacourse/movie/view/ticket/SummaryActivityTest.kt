@@ -13,6 +13,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import woowacourse.movie.MovieFixture
 import woowacourse.movie.R
+import woowacourse.movie.view.ticket.summary.SummaryActivity
 
 @RunWith(AndroidJUnit4::class)
 class SummaryActivityTest {

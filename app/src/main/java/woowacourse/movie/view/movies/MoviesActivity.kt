@@ -10,7 +10,7 @@ import woowacourse.movie.R
 import woowacourse.movie.dummy.Dummy
 import woowacourse.movie.intentmodel.TicketingIntentModel
 import woowacourse.movie.uimodel.MovieUiModel
-import woowacourse.movie.view.ticket.TicketingActivity
+import woowacourse.movie.view.ticket.ticketing.TicketingActivity
 
 class MoviesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
