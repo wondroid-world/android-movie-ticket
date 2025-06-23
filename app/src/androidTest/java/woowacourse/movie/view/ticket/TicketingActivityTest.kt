@@ -1,8 +1,10 @@
 package woowacourse.movie.view.ticket
 
 import android.content.Context
+import android.content.pm.ActivityInfo
 import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.ApplicationProvider
+import androidx.test.espresso.Espresso.onData
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
@@ -21,13 +23,14 @@ import woowacourse.movie.uimodel.MovieUiModel
 class TicketingActivityTest {
     private lateinit var context: Context
     private lateinit var ticketingIntentModel: TicketingIntentModel
+    private lateinit var scenario: ActivityScenario<TicketingActivity>
 
     @Before
     fun setup() {
         context = ApplicationProvider.getApplicationContext<Context>()
         ticketingIntentModel = MovieFixture.ticketingIntentModel
         val intent = TicketingActivity.intent(context, ticketingIntentModel)
-        ActivityScenario.launch<TicketingActivity>(intent)
+        scenario = ActivityScenario.launch<TicketingActivity>(intent)
     }
 
     @Test
@@ -135,6 +138,19 @@ class TicketingActivityTest {
 
         // then: 영화_예매_완료페이지로_넘어간다
         onView(withText(SUMMARY_NOTIFICATION_MESSAGE)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun 화면을_회전해도_인원수는_변하지_않는다() {
+        onView(withId(R.id.button_ticketing_plus_people_count)).perform(click())
+
+        scenario.onActivity { it.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE }
+
+        onView(withId(R.id.textView_ticketing_movie_people_count)).check(
+            matches(
+                withText((PEOPLE_COUNT_DEFAULT_VALUE + 1).toString()),
+            ),
+        )
     }
 
     companion object {

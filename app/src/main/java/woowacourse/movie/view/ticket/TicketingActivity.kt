@@ -66,6 +66,10 @@ class TicketingActivity : AppCompatActivity() {
 
         initView()
         bindData()
+        iniSpinner()
+    }
+
+    private fun iniSpinner() {
         val availableDates = movie.screeningPeriod.availableDates(LocalDate.now())
 
         if (availableDates.isEmpty()) {
