@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.pm.ActivityInfo
 import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.ApplicationProvider
-import androidx.test.espresso.Espresso.onData
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
@@ -19,6 +18,7 @@ import woowacourse.movie.R
 import woowacourse.movie.domain.ScreeningPeriod
 import woowacourse.movie.intentmodel.TicketingIntentModel
 import woowacourse.movie.uimodel.MovieUiModel
+import woowacourse.movie.view.ticket.ticketing.TicketingActivity
 
 class TicketingActivityTest {
     private lateinit var context: Context

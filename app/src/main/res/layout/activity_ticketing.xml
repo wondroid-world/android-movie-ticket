@@ -5,7 +5,7 @@
     android:id="@+id/ticketing"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.ticket.TicketingActivity">
+    tools:context=".view.ticket.ticketing.TicketingActivity">
 
     <ScrollView
         android:layout_width="0dp"
