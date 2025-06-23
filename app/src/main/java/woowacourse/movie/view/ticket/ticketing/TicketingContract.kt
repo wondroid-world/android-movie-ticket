@@ -16,8 +16,6 @@ interface TicketingContract {
 
         fun selectedDate(date: LocalDate)
 
-        fun initCount()
-
         fun minusCount()
 
         fun plusCount()

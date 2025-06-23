@@ -18,10 +18,6 @@ class TicketingPresenter(
     private lateinit var movieDate: LocalDate
     private lateinit var movieTime: LocalDateTime
 
-    override fun initCount() {
-        view.peopleCount(count)
-    }
-
     override fun initData(ticketingIntentModel: TicketingIntentModel) {
         this.movie =
             MovieUiModel(
@@ -46,6 +42,7 @@ class TicketingPresenter(
         view.bind(movie)
         view.initDateSpinnerAdapter(movieAvailableDates)
         view.initTimeSpinnerAdapter(movieAvailableTimes.map { it.toLocalTime() })
+        view.peopleCount(count)
     }
 
     override fun selectedDate(date: LocalDate) {

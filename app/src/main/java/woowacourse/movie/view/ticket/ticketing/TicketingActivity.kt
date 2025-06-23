@@ -41,7 +41,6 @@ class TicketingActivity :
                 TicketingIntentModel::class,
             )
         presenter.initData(ticketingIntentModel)
-        presenter.initCount()
     }
 
     private fun initView() {
