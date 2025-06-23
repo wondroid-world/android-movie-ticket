@@ -17,8 +17,7 @@ kotlin = "2.1.0"
 ktlint = "12.1.0"
 mannodermaus-junit5 = "1.7.0"
 activity = "1.10.1"
-mockk = "1.14.0 "
-
+mockk = "1.14.0"
 [libraries]
 androidx-activity-ktx = { group = "androidx.activity", name = "activity-ktx", version.ref = "androidx-activity-ktx" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidx-appcompat" }
@@ -36,7 +35,6 @@ mannodermaus-junit5-core = { group = "de.mannodermaus.junit5", name = "android-t
 mannodermaus-junit5-runner = { group = "de.mannodermaus.junit5", name = "android-test-runner", version.ref = "mannodermaus-junit5" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
-
 [plugins]
 android-application = { id = "com.android.application", version.ref = "android-gradle-plugin" }
 android-junit5 = { id = "de.mannodermaus.android-junit5", version.ref = "android-junit5" }

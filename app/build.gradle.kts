@@ -53,7 +53,6 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.google.material)
     implementation(libs.androidx.activity)
-
     testImplementation(libs.mockk)
     testImplementation(libs.assertj.core)
     testImplementation(libs.junit.jupiter)
