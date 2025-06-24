@@ -2,6 +2,7 @@ package woowacourse.movie
 
 import woowacourse.movie.domain.Movie
 import woowacourse.movie.domain.ScreeningPeriod
+import woowacourse.movie.intentmodel.Seat
 import woowacourse.movie.intentmodel.SummaryIntentModel
 import woowacourse.movie.intentmodel.TicketingIntentModel
 import java.time.LocalDate
@@ -14,6 +15,7 @@ object MovieFixture {
             title = "해리 포터와 마법사의 돌",
             screeningDateTime = LocalDateTime.of(2025, 4, 15, 11, 0),
             peopleCount = 2,
+            seats = listOf(Seat(0, 0), Seat(0, 1)),
             totalAmount = 26000,
         )
 
