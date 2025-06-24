@@ -4,6 +4,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import woowacourse.movie.R
 import woowacourse.movie.uimodel.MovieUiModel
 
@@ -11,7 +12,7 @@ class MoviesViewHolder(
     private val view: View,
     private val movies: List<MovieUiModel>,
     private val bookMovie: (MovieUiModel) -> Unit,
-) {
+) : RecyclerView.ViewHolder(view) {
     private var position = NO_POSITION
 
     init {
@@ -21,7 +22,8 @@ class MoviesViewHolder(
     }
 
     private val title = view.findViewById<TextView>(R.id.textView_main_movie_title)
-    private val screeningPeriod = view.findViewById<TextView>(R.id.textView_main_movie_screening_period)
+    private val screeningPeriod =
+        view.findViewById<TextView>(R.id.textView_main_movie_screening_period)
     private val runningTime = view.findViewById<TextView>(R.id.textView_main_movie_running_time)
     private val poster = view.findViewById<ImageView>(R.id.imageView_main_movie_poster)
 
