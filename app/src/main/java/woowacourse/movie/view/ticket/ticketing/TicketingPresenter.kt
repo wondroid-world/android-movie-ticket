@@ -68,6 +68,7 @@ class TicketingPresenter(
                 id = movie.id,
                 title = movie.title,
                 screeningDateTime = movieTime,
+                seats = listOf(),
                 peopleCount = count,
                 totalAmount = count * 13000,
             )
