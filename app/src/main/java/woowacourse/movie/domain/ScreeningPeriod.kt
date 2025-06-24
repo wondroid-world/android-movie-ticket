@@ -9,12 +9,6 @@ data class ScreeningPeriod(
     val start: LocalDate,
     val end: LocalDate,
 ) {
-    fun isWeekend(day: LocalDate): Boolean =
-        when (day.dayOfWeek) {
-            DayOfWeek.SATURDAY, DayOfWeek.SUNDAY -> true
-            else -> false
-        }
-
     // 날짜 반환
     fun availableDates(day: LocalDate): List<LocalDate> {
         if (end.isBefore(day)) return emptyList()
@@ -69,4 +63,10 @@ data class ScreeningPeriod(
         }
         return availableDateTime
     }
+
+    private fun isWeekend(day: LocalDate): Boolean =
+        when (day.dayOfWeek) {
+            DayOfWeek.SATURDAY, DayOfWeek.SUNDAY -> true
+            else -> false
+        }
 }
