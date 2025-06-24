@@ -88,6 +88,11 @@
         <item name="android:gravity">center_horizontal</item>
     </style>
 
+    <style name="summaryMovieSeatsTextStyle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
     <style name="summaryMovieTotalAmountTextStyle">
         <item name="android:textSize">20sp</item>
         <item name="android:gravity">center_horizontal</item>

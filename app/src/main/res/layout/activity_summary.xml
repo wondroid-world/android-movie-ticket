@@ -43,14 +43,35 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:text="@string/summary_movie_screening_date" />
 
-    <TextView
-        android:id="@+id/textView_summary_movie_people_count"
-        style="@style/summaryMoviePeopleCountTextStyle"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
-        app:layout_constraintStart_toEndOf="parent"
-        tools:text="일반 2명" />
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView_summary_movie_people_count"
+            style="@style/summaryMoviePeopleCountTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="일반 2명" />
+
+        <TextView
+            android:id="@+id/textView_summary_movie_divider"
+            style="@style/summaryMoviePeopleCountTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="6dp"
+            android:text="@string/summary_movie_divider" />
+
+        <TextView
+            android:id="@+id/textView_summary_movie_seats"
+            style="@style/summaryMovieSeatsTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="B3, D2" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textView_summary_movie_total_amount"
