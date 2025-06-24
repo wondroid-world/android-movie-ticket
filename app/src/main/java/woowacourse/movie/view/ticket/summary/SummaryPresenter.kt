@@ -1,6 +1,7 @@
 package woowacourse.movie.view.ticket.summary
 
 import woowacourse.movie.intentmodel.SummaryIntentModel
+import woowacourse.movie.uimodel.Seat
 import woowacourse.movie.uimodel.SummaryUiModel
 
 class SummaryPresenter(
@@ -13,6 +14,7 @@ class SummaryPresenter(
                 title = data.title,
                 screeningDateTime = data.screeningDateTime,
                 peopleCount = data.peopleCount,
+                seats = data.seats.map { Seat(it.row, it.col) },
                 totalAmount = data.totalAmount,
             )
         view.showData(summary)

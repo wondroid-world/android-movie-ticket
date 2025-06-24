@@ -46,6 +46,7 @@ class SummaryActivity :
             findViewById<TextView>(R.id.textView_summary_movie_screening_date_time)
         val peopleCount = findViewById<TextView>(R.id.textView_summary_movie_people_count)
         val totalAmount = findViewById<TextView>(R.id.textView_summary_movie_total_amount)
+        val seats = findViewById<TextView>(R.id.textView_summary_movie_seats)
 
         title.text = summary.title
         screeningDateTime.text =
@@ -59,6 +60,7 @@ class SummaryActivity :
             )
         peopleCount.text =
             peopleCount.context.getString(R.string.summary_movie_people_count, summary.peopleCount)
+        seats.text = summary.seats.joinToString(", ") { it.name() }
         totalAmount.text =
             totalAmount.context.getString(R.string.summary_movie_total_amount, summary.totalAmount)
     }
