@@ -7,7 +7,6 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.RootMatchers.isDialog
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
@@ -119,22 +118,9 @@ class TicketingActivityTest {
     }
 
     @Test
-    fun 선택_완료_버튼을_누르면_Dialog_화면이_나온다() {
-        // when: 사용자가 선택 완료 버튼을 누르면,
-        onView(withId(R.id.button_ticketing_movie_selected)).perform(click())
-
-        // then: dialog 화면이 나온다
-        onView(withText(RESERVATION_CHECK)).inRoot(isDialog()).check(matches(isDisplayed()))
-        onView(withText(RESERVATION_MESSAGE)).inRoot(isDialog()).check(matches(isDisplayed()))
-        onView(withText(RESERVATION_CANCEL)).inRoot(isDialog()).check(matches(isDisplayed()))
-        onView(withText(RESERVATION_COMPLETE)).inRoot(isDialog()).check(matches(isDisplayed()))
-    }
-
-    @Test
-    fun Dialog화면에서_예매_완료를_클릭하면_영화_예매_완료페이지로_넘어간다() {
+    fun 예매_완료를_클릭하면_좌석_선택으로_넘어간다() {
         // when: Dialog화면에서_예매_완료를_클릭
         onView(withId(R.id.button_ticketing_movie_selected)).perform(click())
-        onView(withText(RESERVATION_COMPLETE)).inRoot(isDialog()).perform(click())
 
         // then: 영화_좌석_선택페이지로_넘어간다
         onView(withText(SEAT_SCREEN)).check(matches(isDisplayed()))
@@ -155,11 +141,6 @@ class TicketingActivityTest {
 
     companion object {
         private const val PEOPLE_COUNT_DEFAULT_VALUE: Int = 1
-        private const val RESERVATION_CHECK = "예매 확인"
-        private const val RESERVATION_MESSAGE = "정말 예매하시겠습니까?"
-        private const val RESERVATION_CANCEL = "취소"
-        private const val RESERVATION_COMPLETE = "예매 완료"
-
         private const val SEAT_SCREEN = "SCREEN"
     }
 }

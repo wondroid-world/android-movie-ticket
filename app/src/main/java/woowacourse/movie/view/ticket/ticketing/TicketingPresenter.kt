@@ -36,12 +36,14 @@ class TicketingPresenter(
         if (movieAvailableDates.isEmpty()) {
             view.showNoAvailableDates()
         }
-        movieDate = movieAvailableDates[0]
-        movieAvailableTimes = movie.screeningPeriod.availableTime(movieDate, LocalDateTime.now())
 
-        view.bind(movie)
+        movieDate = movieAvailableDates[0]
+        movieAvailableTimes =
+            movie.screeningPeriod.availableTime(movieDate, LocalDateTime.now())
         view.initDateSpinnerAdapter(movieAvailableDates)
         view.initTimeSpinnerAdapter(movieAvailableTimes.map { it.toLocalTime() })
+
+        view.bind(movie)
         view.peopleCount(count)
     }
 
@@ -71,6 +73,19 @@ class TicketingPresenter(
                 peopleCount = count,
             )
         view.showSelectedMovie(seat)
+    }
+
+    override fun updateCount(count: Int?) {
+        count?.let { view.peopleCount(count) }
+            ?: view.peopleCount(PEOPLE_COUNT_DEFAULT_VALUE)
+    }
+
+    override fun updateDatePosition(position: Int) {
+        view.showSelectedDate(position)
+    }
+
+    override fun updateTimePosition(position: Int) {
+        view.showSelectedTime(position)
     }
 
     override fun minusCount() {

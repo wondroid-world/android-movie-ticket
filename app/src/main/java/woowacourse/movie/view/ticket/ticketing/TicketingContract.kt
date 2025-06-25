@@ -1,7 +1,6 @@
 package woowacourse.movie.view.ticket.ticketing
 
 import woowacourse.movie.intentmodel.SeatIntentModel
-import woowacourse.movie.intentmodel.SummaryIntentModel
 import woowacourse.movie.intentmodel.TicketingIntentModel
 import woowacourse.movie.uimodel.MovieUiModel
 import java.time.LocalDate
@@ -20,6 +19,12 @@ interface TicketingContract {
         fun minusCount()
 
         fun plusCount()
+
+        fun updateCount(count: Int?)
+
+        fun updateDatePosition(position: Int)
+
+        fun updateTimePosition(position: Int)
     }
 
     interface View {
@@ -36,5 +41,9 @@ interface TicketingContract {
         fun showSelectedMovie(seat: SeatIntentModel)
 
         fun showNoAvailableDates()
+
+        fun showSelectedDate(position: Int)
+
+        fun showSelectedTime(position: Int)
     }
 }

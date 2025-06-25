@@ -1,6 +1,5 @@
 package woowacourse.movie.view.ticket.ticketing
 
-import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -14,12 +13,10 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import woowacourse.movie.R
 import woowacourse.movie.intentmodel.SeatIntentModel
-import woowacourse.movie.intentmodel.SummaryIntentModel
 import woowacourse.movie.intentmodel.TicketingIntentModel
 import woowacourse.movie.uimodel.MovieUiModel
 import woowacourse.movie.util.BuildVersion
 import woowacourse.movie.view.ticket.seat.SeatActivity
-import woowacourse.movie.view.ticket.summary.SummaryActivity
 import java.time.LocalDate
 import java.time.LocalTime
 
@@ -39,6 +36,29 @@ class TicketingActivity :
                 TicketingIntentModel::class,
             )
         presenter.initData(ticketingIntentModel)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt(
+            TICKETING_COUNT_KEY,
+            viewHolder.peopleCount.text
+                .toString()
+                .toInt(),
+        )
+        outState.putInt(TICKETING_DATE_KEY, viewHolder.dates.selectedItemPosition)
+        outState.putInt(TICKETING_TIME_KEY, viewHolder.times.selectedItemPosition)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        val savedCount = savedInstanceState.getInt(TICKETING_COUNT_KEY)
+        val savedDatePosition = savedInstanceState.getInt(TICKETING_DATE_KEY)
+        val savedTimePosition =  savedInstanceState.getInt(TICKETING_TIME_KEY)
+
+        presenter.updateCount(savedCount)
+        presenter.updateDatePosition(savedDatePosition)
+        presenter.updateTimePosition(savedTimePosition)
     }
 
     private fun initView() {
@@ -73,9 +93,7 @@ class TicketingActivity :
                     presenter.selectedTime(movieAvailableTimes[position])
                 }
 
-                override fun onNothingSelected(parent: AdapterView<*>?) {
-                    TODO("Not yet implemented")
-                }
+                override fun onNothingSelected(parent: AdapterView<*>?) = Unit
             }
     }
 
@@ -97,22 +115,13 @@ class TicketingActivity :
                     presenter.selectedDate(movieAvailableDates[position])
                 }
 
-                override fun onNothingSelected(parent: AdapterView<*>?) {
-                    TODO("Not yet implemented")
-                }
+                override fun onNothingSelected(parent: AdapterView<*>?) = Unit
             }
     }
 
     override fun showSelectedMovie(seat: SeatIntentModel) {
-        AlertDialog
-            .Builder(this)
-            .setTitle(getString(R.string.ticketing_reservation_check))
-            .setMessage(getString(R.string.ticketing_reservation_message))
-            .setPositiveButton(getString(R.string.ticketing_reservation_complete)) { _, _ ->
-                val intent = SeatActivity.intent(this, seat)
-                startActivity(intent)
-            }.setNegativeButton(getString(R.string.ticketing_reservation_cancel)) { dialog, _ -> dialog.dismiss() }
-            .show()
+        val intent = SeatActivity.intent(this, seat)
+        startActivity(intent)
     }
 
     override fun showNoAvailableDates() {
@@ -123,6 +132,14 @@ class TicketingActivity :
                 Toast.LENGTH_SHORT,
             ).show()
         finish()
+    }
+
+    override fun showSelectedDate(position: Int) {
+        viewHolder.dates.setSelection(position)
+    }
+
+    override fun showSelectedTime(position: Int) {
+        viewHolder.times.setSelection(position)
     }
 
     override fun peopleCount(count: Int) {
@@ -140,6 +157,9 @@ class TicketingActivity :
 
     companion object {
         private const val TICKETING_INTENT_KEY: String = "ticketing"
+        private const val TICKETING_COUNT_KEY: String = "ticketingCount"
+        private const val TICKETING_DATE_KEY: String = "ticketingDate"
+        private const val TICKETING_TIME_KEY: String = "ticketingTime"
 
         fun intent(
             context: Context,
