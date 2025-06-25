@@ -136,8 +136,8 @@ class TicketingActivityTest {
         onView(withId(R.id.button_ticketing_movie_selected)).perform(click())
         onView(withText(RESERVATION_COMPLETE)).inRoot(isDialog()).perform(click())
 
-        // then: 영화_예매_완료페이지로_넘어간다
-        onView(withText(SUMMARY_NOTIFICATION_MESSAGE)).check(matches(isDisplayed()))
+        // then: 영화_좌석_선택페이지로_넘어간다
+        onView(withText(SEAT_SCREEN)).check(matches(isDisplayed()))
     }
 
     @Test
@@ -160,6 +160,6 @@ class TicketingActivityTest {
         private const val RESERVATION_CANCEL = "취소"
         private const val RESERVATION_COMPLETE = "예매 완료"
 
-        private const val SUMMARY_NOTIFICATION_MESSAGE = "영화 상영 시작 시간 15분 전까지\n취소가 가능합니다."
+        private const val SEAT_SCREEN = "SCREEN"
     }
 }

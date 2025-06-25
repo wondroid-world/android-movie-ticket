@@ -1,5 +1,6 @@
 package woowacourse.movie.view.ticket.ticketing
 
+import woowacourse.movie.intentmodel.SeatIntentModel
 import woowacourse.movie.intentmodel.SummaryIntentModel
 import woowacourse.movie.intentmodel.TicketingIntentModel
 import woowacourse.movie.uimodel.MovieUiModel
@@ -32,7 +33,7 @@ interface TicketingContract {
 
         fun initTimeSpinnerAdapter(movieAvailableTimes: List<LocalTime>)
 
-        fun showSelectedMovie(summary: SummaryIntentModel)
+        fun showSelectedMovie(seat: SeatIntentModel)
 
         fun showNoAvailableDates()
     }

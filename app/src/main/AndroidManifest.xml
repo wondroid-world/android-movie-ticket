@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Movie"
         tools:targetApi="31">
         <activity
+            android:name=".view.ticket.seat.SeatActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.ticket.ticketing.TicketingActivity"
             android:exported="false" />
         <activity

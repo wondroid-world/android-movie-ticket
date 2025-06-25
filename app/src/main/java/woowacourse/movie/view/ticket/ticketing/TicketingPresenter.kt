@@ -1,7 +1,7 @@
 package woowacourse.movie.view.ticket.ticketing
 
 import woowacourse.movie.domain.ScreeningPeriod
-import woowacourse.movie.intentmodel.SummaryIntentModel
+import woowacourse.movie.intentmodel.SeatIntentModel
 import woowacourse.movie.intentmodel.TicketingIntentModel
 import woowacourse.movie.uimodel.MovieUiModel
 import java.time.LocalDate
@@ -63,16 +63,14 @@ class TicketingPresenter(
     }
 
     override fun selectedMovie() {
-        val summary =
-            SummaryIntentModel(
+        val seat =
+            SeatIntentModel(
                 id = movie.id,
                 title = movie.title,
                 screeningDateTime = movieTime,
-                seats = listOf(),
                 peopleCount = count,
-                totalAmount = count * 13000,
             )
-        view.showSelectedMovie(summary)
+        view.showSelectedMovie(seat)
     }
 
     override fun minusCount() {

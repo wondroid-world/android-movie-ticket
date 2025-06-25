@@ -13,10 +13,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import woowacourse.movie.R
+import woowacourse.movie.intentmodel.SeatIntentModel
 import woowacourse.movie.intentmodel.SummaryIntentModel
 import woowacourse.movie.intentmodel.TicketingIntentModel
 import woowacourse.movie.uimodel.MovieUiModel
 import woowacourse.movie.util.BuildVersion
+import woowacourse.movie.view.ticket.seat.SeatActivity
 import woowacourse.movie.view.ticket.summary.SummaryActivity
 import java.time.LocalDate
 import java.time.LocalTime
@@ -101,13 +103,13 @@ class TicketingActivity :
             }
     }
 
-    override fun showSelectedMovie(summary: SummaryIntentModel) {
+    override fun showSelectedMovie(seat: SeatIntentModel) {
         AlertDialog
             .Builder(this)
             .setTitle(getString(R.string.ticketing_reservation_check))
             .setMessage(getString(R.string.ticketing_reservation_message))
             .setPositiveButton(getString(R.string.ticketing_reservation_complete)) { _, _ ->
-                val intent = SummaryActivity.Companion.intent(this, summary)
+                val intent = SeatActivity.intent(this, seat)
                 startActivity(intent)
             }.setNegativeButton(getString(R.string.ticketing_reservation_cancel)) { dialog, _ -> dialog.dismiss() }
             .show()
