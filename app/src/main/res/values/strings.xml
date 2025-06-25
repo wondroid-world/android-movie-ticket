@@ -28,4 +28,26 @@
     <string name="ticketing_people_count_minimum">영화 관람 인원이 최소 1명이상이어야 합니다.</string>
     <string name="ticketing_movie_already_closed">이미 상영이 종료된 영화입니다</string>
     <string name="ad_content_description">우아한 테크 코스 광고입니다.</string>
+    <string name="seat_screen">SCREEM</string>
+    <string name="seat_check">확인</string>
+    <string name="seat_a1">A1</string>
+    <string name="seat_a2">A2</string>
+    <string name="seat_a3">A3</string>
+    <string name="seat_a4">A4</string>
+    <string name="seat_b1">B1</string>
+    <string name="seat_b2">B2</string>
+    <string name="seat_b3">B3</string>
+    <string name="seat_b4">B4</string>
+    <string name="seat_c1">C1</string>
+    <string name="seat_c2">C2</string>
+    <string name="seat_c3">C3</string>
+    <string name="seat_c4">C4</string>
+    <string name="seat_d1">D1</string>
+    <string name="seat_d2">D2</string>
+    <string name="seat_d3">D3</string>
+    <string name="seat_d4">D4</string>
+    <string name="seat_e1">E1</string>
+    <string name="seat_e2">E2</string>
+    <string name="seat_e3">E3</string>
+    <string name="seat_e4">E4</string>
 </resources>

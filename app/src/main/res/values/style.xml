@@ -11,53 +11,53 @@
     </style>
 
     <!--  Main 페이지  -->
-    <style name="mainMovieTitleTextStyle">
+    <style name="mainMovieTitleTextStyle" parent="BaseTextStyle">
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="mainMovieScreeningDateTextStyle">
+    <style name="mainMovieScreeningDateTextStyle" parent="BaseTextStyle">
         <item name="android:textSize">12sp</item>
     </style>
 
-    <style name="mainMovieRunningTimeTextStyle">
+    <style name="mainMovieRunningTimeTextStyle" parent="BaseTextStyle">
         <item name="android:textSize">12sp</item>
     </style>
 
-    <style name="mainMovieBookButtonTextStyle">
+    <style name="mainMovieBookButtonTextStyle" parent="BaseTextStyle">
         <item name="android:textSize">14sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/white</item>
     </style>
 
     <!--  Ticketing 페이지  -->
-    <style name="TicketingMovieTitleTextStyle">
+    <style name="TicketingMovieTitleTextStyle" parent="BaseTextStyle">
         <item name="android:textSize">24sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="TicketingMovieScreeningPeriodTextStyle">
+    <style name="TicketingMovieScreeningPeriodTextStyle" parent="BaseTextStyle">
         <item name="android:textSize">16sp</item>
     </style>
 
-    <style name="TicketingMovieRunningTimeTextStyle">
+    <style name="TicketingMovieRunningTimeTextStyle" parent="BaseTextStyle">
         <item name="android:textSize">16sp</item>
     </style>
 
-    <style name="TicketingMoviePeopleCountTextStyle">
+    <style name="TicketingMoviePeopleCountTextStyle" parent="BaseTextStyle">
         <item name="android:textSize">20sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:gravity">center_horizontal</item>
     </style>
 
-    <style name="TicketingButtonTextStyle">
+    <style name="TicketingButtonTextStyle" parent="BaseTextStyle">
         <item name="android:textSize">25sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="TicketingMovieSelectedButtonTextStyle">
+    <style name="TicketingMovieSelectedButtonTextStyle" parent="BaseTextStyle">
         <item name="android:textSize">20sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:gravity">center</item>
@@ -65,36 +65,82 @@
     </style>
 
     <!--  Summary 페이지  -->
-    <style name="summaryNotificationMessageTextStyle">
+    <style name="summaryNotificationMessageTextStyle" parent="BaseTextStyle">
         <item name="android:textSize">15sp</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:gravity">center_horizontal</item>
     </style>
 
-    <style name="summaryMovieTitleTextStyle">
+    <style name="summaryMovieTitleTextStyle" parent="BaseTextStyle">
         <item name="android:textSize">25sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:gravity">center_horizontal</item>
     </style>
 
-    <style name="summaryMovieScreeningDateTimeTextStyle">
+    <style name="summaryMovieScreeningDateTimeTextStyle" parent="BaseTextStyle">
         <item name="android:textSize">20sp</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="summaryMoviePeopleCountTextStyle">
+    <style name="summaryMoviePeopleCountTextStyle" parent="BaseTextStyle">
         <item name="android:textSize">20sp</item>
         <item name="android:gravity">center_horizontal</item>
     </style>
 
-    <style name="summaryMovieSeatsTextStyle">
+    <style name="summaryMovieSeatsTextStyle" parent="BaseTextStyle">
         <item name="android:textSize">20sp</item>
         <item name="android:gravity">center_horizontal</item>
     </style>
 
-    <style name="summaryMovieTotalAmountTextStyle">
+    <style name="summaryMovieTotalAmountTextStyle" parent="BaseTextStyle">
         <item name="android:textSize">20sp</item>
         <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <!--  Seat 페이지  -->
+    <style name="seatScreenTextStyle" parent="BaseTextStyle">
+        <item name="android:background">@color/black_400</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="seatMovieTitleTextStyle" parent="BaseTextStyle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="seatMovieTotalAmountTextStyle" parent="BaseTextStyle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/black_300</item>
+    </style>
+
+    <style name="seatCheckTextStyle" parent="BaseTextStyle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@color/black_200</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="seatTextStyle" parent="BaseTextStyle">
+        <item name="android:textSize">22sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingVertical">24dp</item>
+        <item name="backgroundColor">@color/white</item>
+    </style>
+
+    <style name="seatBTextStyle" parent="seatTextStyle">
+        <item name="android:textColor">@color/purple</item>
+    </style>
+
+    <style name="seatSTextStyle" parent="seatTextStyle">
+        <item name="android:textColor">@color/green</item>
+    </style>
+
+    <style name="seatATextStyle" parent="seatTextStyle">
+        <item name="android:textColor">@color/blue</item>
     </style>
 </resources>

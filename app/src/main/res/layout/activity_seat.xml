@@ -7,4 +7,192 @@
     android:layout_height="match_parent"
     tools:context=".view.ticket.seat.SeatActivity">
 
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:background="@color/black_100"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView_seat_screen"
+                style="@style/seatScreenTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:layout_marginHorizontal="34dp"
+                android:text="@string/seat_screen"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="34dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="96dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:stretchColumns="*"
+                app:layout_constraintBottom_toTopOf="@id/view_seat_bar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView_seat_screen">
+
+                <TableRow>
+
+                    <TextView
+                        style="@style/seatBTextStyle"
+                        android:text="@string/seat_a1" />
+
+                    <TextView
+                        style="@style/seatBTextStyle"
+                        android:text="@string/seat_a2" />
+
+                    <TextView
+                        style="@style/seatBTextStyle"
+                        android:text="@string/seat_a3" />
+
+                    <TextView
+                        style="@style/seatBTextStyle"
+                        android:text="@string/seat_a4" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        style="@style/seatBTextStyle"
+                        android:text="@string/seat_b1" />
+
+                    <TextView
+                        style="@style/seatBTextStyle"
+                        android:text="@string/seat_b2" />
+
+                    <TextView
+                        style="@style/seatBTextStyle"
+                        android:text="@string/seat_b3" />
+
+                    <TextView
+                        style="@style/seatBTextStyle"
+                        android:text="@string/seat_b4" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        style="@style/seatSTextStyle"
+                        android:text="@string/seat_c1" />
+
+                    <TextView
+                        style="@style/seatSTextStyle"
+                        android:text="@string/seat_c2" />
+
+                    <TextView
+                        style="@style/seatSTextStyle"
+                        android:text="@string/seat_c3" />
+
+                    <TextView
+                        style="@style/seatSTextStyle"
+                        android:text="@string/seat_c4" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        style="@style/seatSTextStyle"
+                        android:text="@string/seat_d1" />
+
+                    <TextView
+                        style="@style/seatSTextStyle"
+                        android:text="@string/seat_d2" />
+
+                    <TextView
+                        style="@style/seatSTextStyle"
+                        android:text="@string/seat_d3" />
+
+                    <TextView
+                        style="@style/seatSTextStyle"
+                        android:text="@string/seat_d4" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        style="@style/seatATextStyle"
+                        android:text="@string/seat_e1" />
+
+                    <TextView
+                        style="@style/seatATextStyle"
+                        android:text="@string/seat_e2" />
+
+                    <TextView
+                        style="@style/seatATextStyle"
+                        android:text="@string/seat_e3" />
+
+                    <TextView
+                        style="@style/seatATextStyle"
+                        android:text="@string/seat_e4" />
+                </TableRow>
+            </TableLayout>
+
+
+            <View
+                android:id="@+id/view_seat_bar"
+                android:layout_width="0dp"
+                android:layout_height="78dp"
+                android:background="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/view_seat_check"
+                app:layout_constraintHorizontal_weight="3.5"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:id="@+id/view_seat_check"
+                android:layout_width="0dp"
+                android:layout_height="78dp"
+                android:background="@color/black_200"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@id/view_seat_bar" />
+
+            <TextView
+                android:id="@+id/textView_seat_movie_title"
+                style="@style/seatMovieTitleTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                app:layout_constraintBottom_toTopOf="@id/textView_seat_movie_total_amount"
+                app:layout_constraintStart_toStartOf="@id/view_seat_bar"
+                app:layout_constraintTop_toTopOf="@id/view_seat_bar"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="해리 포터와 마법사의 돌" />
+
+            <TextView
+                android:id="@+id/textView_seat_movie_total_amount"
+                style="@style/seatMovieTotalAmountTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@id/view_seat_bar"
+                app:layout_constraintStart_toStartOf="@id/textView_seat_movie_title"
+                app:layout_constraintTop_toBottomOf="@id/textView_seat_movie_title"
+                tools:text="0원" />
+
+            <TextView
+                android:id="@+id/textView_seat_check"
+                style="@style/seatCheckTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/seat_check"
+                app:layout_constraintBottom_toBottomOf="@id/view_seat_check"
+                app:layout_constraintEnd_toEndOf="@id/view_seat_check"
+                app:layout_constraintStart_toStartOf="@id/view_seat_check"
+                app:layout_constraintTop_toTopOf="@id/view_seat_check" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
