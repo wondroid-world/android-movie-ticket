@@ -27,4 +27,5 @@
     <string name="ticketing_reservation_cancel">취소</string>
     <string name="ticketing_people_count_minimum">영화 관람 인원이 최소 1명이상이어야 합니다.</string>
     <string name="ticketing_movie_already_closed">이미 상영이 종료된 영화입니다</string>
+    <string name="ad_content_description">우아한 테크 코스 광고입니다.</string>
 </resources>

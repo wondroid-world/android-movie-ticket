@@ -10,14 +10,13 @@ import woowacourse.movie.uimodel.MovieUiModel
 
 class MoviesViewHolder(
     private val view: View,
-    private val movies: List<MovieUiModel>,
     private val bookMovie: (MovieUiModel) -> Unit,
 ) : RecyclerView.ViewHolder(view) {
-    private var position = NO_POSITION
+    private lateinit var movie: MovieUiModel
 
     init {
         view.findViewById<Button>(R.id.button_main_movie_book).setOnClickListener {
-            bookMovie(movies[position])
+            bookMovie(movie)
         }
     }
 
@@ -27,30 +26,25 @@ class MoviesViewHolder(
     private val runningTime = view.findViewById<TextView>(R.id.textView_main_movie_running_time)
     private val poster = view.findViewById<ImageView>(R.id.imageView_main_movie_poster)
 
-    fun bind(position: Int) {
-        this.position = position
-        val movie = movies[this.position]
+    fun bind(movie: MoviesViewType.Movie) {
+        this.movie = movie.movie
 
-        title.text = movie.title
+        title.text = this.movie.title
         screeningPeriod.text =
             screeningPeriod.context.getString(
                 R.string.movie_screening_date,
-                movie.screeningPeriod.start.year,
-                movie.screeningPeriod.start.monthValue,
-                movie.screeningPeriod.start.dayOfMonth,
-                movie.screeningPeriod.end.year,
-                movie.screeningPeriod.end.monthValue,
-                movie.screeningPeriod.end.dayOfMonth,
+                this.movie.screeningPeriod.start.year,
+                this.movie.screeningPeriod.start.monthValue,
+                this.movie.screeningPeriod.start.dayOfMonth,
+                this.movie.screeningPeriod.end.year,
+                this.movie.screeningPeriod.end.monthValue,
+                this.movie.screeningPeriod.end.dayOfMonth,
             )
         runningTime.text =
-            runningTime.context.getString(R.string.movie_running_time, movie.runningTime)
-        movie.posterImage(poster.context).load(poster, poster.context)
+            runningTime.context.getString(R.string.movie_running_time, this.movie.runningTime)
+        this.movie.posterImage(poster.context).load(poster, poster.context)
         view.findViewById<Button>(R.id.button_main_movie_book).setOnClickListener {
-            bookMovie(movies[position])
+            bookMovie(this.movie)
         }
-    }
-
-    companion object {
-        private const val NO_POSITION: Int = -1
     }
 }

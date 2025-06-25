@@ -7,29 +7,46 @@ import woowacourse.movie.R
 import woowacourse.movie.uimodel.MovieUiModel
 
 class MoviesAdapter(
-    private val movies: List<MovieUiModel>,
+    private val items: List<MoviesViewType>,
     private val bookMovie: (MovieUiModel) -> Unit,
-) : RecyclerView.Adapter<MoviesViewHolder>() {
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int,
-    ): MoviesViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_movie, parent, false)
-        return MoviesViewHolder(
-            view = view,
-            movies = movies,
-            bookMovie = bookMovie,
-        )
+    ): RecyclerView.ViewHolder {
+        when (viewType) {
+            MoviesViewType.TYPE_MOVIE -> {
+                val view =
+                    LayoutInflater.from(parent.context).inflate(R.layout.item_movie, parent, false)
+                return MoviesViewHolder(
+                    view = view,
+                    bookMovie = bookMovie,
+                )
+            }
+
+            MoviesViewType.TYPE_AD -> {
+                val view =
+                    LayoutInflater
+                        .from(parent.context)
+                        .inflate(R.layout.item_ad, parent, false)
+                return AdViewHolder(view)
+            }
+
+            else -> throw IllegalArgumentException()
+        }
     }
 
     override fun onBindViewHolder(
-        holder: MoviesViewHolder,
+        holder: RecyclerView.ViewHolder,
         position: Int,
     ) {
-        holder.bind(position)
+        when (holder) {
+            is MoviesViewHolder -> holder.bind(items[position] as MoviesViewType.Movie)
+            is AdViewHolder -> holder.ad
+        }
     }
 
-    override fun getItemId(position: Int): Long = movies[position].id
+    override fun getItemViewType(position: Int): Int = items[position].viewType
 
-    override fun getItemCount(): Int = movies.size
+    override fun getItemCount(): Int = items.size
 }

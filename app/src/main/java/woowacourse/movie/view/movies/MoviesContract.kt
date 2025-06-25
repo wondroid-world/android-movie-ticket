@@ -11,7 +11,7 @@ interface MoviesContract {
     }
 
     interface View {
-        fun initAdapter(movies: List<MovieUiModel>)
+        fun initAdapter(items: List<MoviesViewType>)
 
         fun moveOtherView(movieIntentModel: TicketingIntentModel)
     }

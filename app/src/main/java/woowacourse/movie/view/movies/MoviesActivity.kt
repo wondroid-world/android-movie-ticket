@@ -1,7 +1,6 @@
 package woowacourse.movie.view.movies
 
 import android.os.Bundle
-import android.widget.ListView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -10,7 +9,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import woowacourse.movie.R
 import woowacourse.movie.intentmodel.TicketingIntentModel
-import woowacourse.movie.uimodel.MovieUiModel
 import woowacourse.movie.view.ticket.ticketing.TicketingActivity
 
 class MoviesActivity :
@@ -34,8 +32,8 @@ class MoviesActivity :
         }
     }
 
-    override fun initAdapter(movies: List<MovieUiModel>) {
-        val adapter = MoviesAdapter(movies, presenter::bookMovie)
+    override fun initAdapter(items: List<MoviesViewType>) {
+        val adapter = MoviesAdapter(items, presenter::bookMovie)
         val moviesView = findViewById<RecyclerView>(R.id.recyclerview_movies)
         moviesView.layoutManager = LinearLayoutManager(this)
         moviesView.adapter = adapter

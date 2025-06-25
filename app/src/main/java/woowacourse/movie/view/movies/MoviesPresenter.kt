@@ -18,7 +18,14 @@ class MoviesPresenter(
                     runningTime = movie.runningTime,
                 )
             }
-        view.initAdapter(movies)
+        val items = mutableListOf<MoviesViewType>()
+        movies.forEachIndexed { index, movie ->
+            items.add(MoviesViewType.Movie(movie))
+            if ((index + 1) % 3 == 0) {
+                items.add(MoviesViewType.Ad)
+            }
+        }
+        view.initAdapter(items)
     }
 
     override fun bookMovie(movie: MovieUiModel) {

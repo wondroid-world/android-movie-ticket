@@ -67,4 +67,15 @@ class MoviesActivityTest {
             ),
         ).check(matches(isDisplayed()))
     }
+
+    @Test
+    fun 영화목록_세번째에_광고를_보여준다() {
+        onView(withId(R.id.recyclerview_movies)).perform(
+            RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(
+                4,
+            ),
+        )
+
+        onView(withId(R.id.imageView_main_ad)).check(matches(isDisplayed()))
+    }
 }
