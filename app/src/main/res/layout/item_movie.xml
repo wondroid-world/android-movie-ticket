@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="132dp"
+    android:padding="12dp">
+
+    <ImageView
+        android:id="@+id/item_movie_poster"
+        android:layout_width="76dp"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/movie_poster"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_movie_title"
+        style="@style/mainMovieTitleTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@id/item_movie_poster"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="해리포터와 마법사의 돌" />
+
+    <TextView
+        android:id="@+id/tv_movie_showtime"
+        style="@style/mainMovieScreeningDateTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        app:layout_constraintStart_toStartOf="@id/tv_movie_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_movie_title"
+        tools:text="상영일: 2025.4.1" />
+
+
+    <TextView
+        android:id="@+id/tv_movie_running_time"
+        style="@style/mainMovieRunningTimeTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/tv_movie_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_movie_showtime"
+        tools:text="러닝타임: 152분" />
+
+    <TextView
+        android:id="@+id/button_main_movie_book"
+        style="@style/mainMovieBookButtonTextStyle"
+        android:layout_width="88dp"
+        android:layout_height="36dp"
+        android:background="@color/purple_500"
+        android:text="@string/movie_book"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintCircleRadius="6dp"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
