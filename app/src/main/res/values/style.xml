@@ -145,5 +145,9 @@
         <item name="android:textColor">@color/blue</item>
     </style>
 
+    <style name="summaryMovieScreeningDateTextStyle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
 </resources>
 

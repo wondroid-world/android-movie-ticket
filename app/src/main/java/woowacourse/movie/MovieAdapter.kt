@@ -7,7 +7,8 @@ import android.widget.BaseAdapter
 import woowacourse.movie.domain.Movie
 
 class MovieAdapter(
-    val movies: List<Movie>
+    private val movies: List<Movie>,
+    private val bookedClickListener: (Movie) -> Unit,
 ) : BaseAdapter() {
     override fun getCount(): Int = movies.size
 
@@ -24,7 +25,7 @@ class MovieAdapter(
         val movieViewHolder: MovieViewHolder
         if (convertView == null) {
             view = LayoutInflater.from(parent.context).inflate(R.layout.item_movie, parent, false)
-            movieViewHolder = MovieViewHolder(view, movies)
+            movieViewHolder = MovieViewHolder(view, movies, bookedClickListener)
             view.tag = movieViewHolder
         } else {
             view = convertView
