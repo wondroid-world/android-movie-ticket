@@ -11,6 +11,7 @@ class MovieViewHolder(
     private val bookedClickListener: (Movie) -> Unit,
 ) {
     private var position = NO_POSITION
+
     init {
         view.findViewById<TextView>(R.id.button_main_movie_book).setOnClickListener {
             bookedClickListener(movies[position])

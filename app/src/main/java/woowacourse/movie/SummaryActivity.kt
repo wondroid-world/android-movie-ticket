@@ -16,7 +16,7 @@ class SummaryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initView()
-        val movie = intent.getParcelableExtra<MovieIntentModel>(NAME_OF_VALUE)
+        val movie: MovieIntentModel? = intent.getParcelableExtra(NAME_OF_VALUE)
         movie?.let { initMovie(it.toDomain()) }
     }
 
