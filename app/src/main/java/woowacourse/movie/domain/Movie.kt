@@ -7,5 +7,5 @@ data class Movie(
     val title: String,
     val showtime: LocalDate,
     val runningTime: Int,
-    val poster: String,
+    val poster: Int,
 )

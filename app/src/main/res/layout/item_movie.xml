@@ -12,7 +12,7 @@
         android:layout_width="76dp"
         android:layout_height="match_parent"
         android:contentDescription="@string/movie_poster"
-        tools:src="@drawable/movie_poster"
+        tools:src="@drawable/harry_potter_and_the_sorcerers_stone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
