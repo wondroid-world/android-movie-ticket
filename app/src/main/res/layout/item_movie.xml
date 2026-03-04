@@ -2,12 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_movie"
     android:layout_width="match_parent"
     android:layout_height="132dp"
     android:padding="12dp">
 
     <ImageView
-        android:id="@+id/item_movie_poster"
+        android:id="@+id/iv_movie_poster"
         android:layout_width="76dp"
         android:layout_height="match_parent"
         android:contentDescription="@string/movie_poster"
@@ -22,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@id/item_movie_poster"
+        app:layout_constraintStart_toEndOf="@id/iv_movie_poster"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="해리포터와 마법사의 돌" />
 
