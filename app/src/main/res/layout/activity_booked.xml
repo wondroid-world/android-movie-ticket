@@ -1,20 +1,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/summary"
+    android:id="@+id/booked"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".BookedActivity">
+    tools:context=".view.BookedActivity">
 
     <LinearLayout
-        android:id="@+id/ll_summary_notification_message_box"
+        android:id="@+id/ll_booked_notification_message_box"
         android:layout_width="match_parent"
         android:layout_height="114dp"
         android:background="@color/purple_400">
 
         <TextView
-            android:id="@+id/tv_summary_notification_message"
+            android:id="@+id/tv_booked_notification_message"
             style="@style/summaryNotificationMessageTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -25,22 +25,22 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/tv_summary_movie_title"
+        android:id="@+id/tv_booked_movie_title"
         style="@style/summaryMovieTitleTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
-        android:text="@string/summary_movie_title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ll_summary_notification_message_box" />
+        app:layout_constraintTop_toBottomOf="@id/ll_booked_notification_message_box"
+        tools:text="@string/summary_movie_title" />
 
     <TextView
-        android:id="@+id/tv_summary_movie_screening_date"
+        android:id="@+id/tv_booked_movie_screening_date"
         style="@style/summaryMovieScreeningDateTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/summary_movie_screening_date"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_summary_movie_title" />
+        app:layout_constraintTop_toBottomOf="@id/tv_booked_movie_title" />
 </LinearLayout>

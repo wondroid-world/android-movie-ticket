@@ -1,14 +1,15 @@
-package woowacourse.movie
+package woowacourse.movie.view
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import woowacourse.movie.R
 import woowacourse.movie.domain.Movie
 
 class MovieAdapter(
     private val movies: List<Movie>,
-    private val bookedClickListener: (Movie) -> Unit,
+    private val bookingClickListener: (Movie) -> Unit,
 ) : BaseAdapter() {
     override fun getCount(): Int = movies.size
 
@@ -25,7 +26,7 @@ class MovieAdapter(
         val movieViewHolder: MovieViewHolder
         if (convertView == null) {
             view = LayoutInflater.from(parent.context).inflate(R.layout.item_movie, parent, false)
-            movieViewHolder = MovieViewHolder(view, movies, bookedClickListener)
+            movieViewHolder = MovieViewHolder(view, movies, bookingClickListener)
             view.tag = movieViewHolder
         } else {
             view = convertView
