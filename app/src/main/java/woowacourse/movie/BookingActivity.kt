@@ -1,35 +1,32 @@
 package woowacourse.movie
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
-import android.widget.ListView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import woowacourse.movie.intent.toIntentModel
+import woowacourse.movie.intent.MovieIntentModel
 
-class MovieActivity : AppCompatActivity() {
-
-    private lateinit var adapter: MovieAdapter
-
+class BookingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initView()
-        val listView = findViewById<ListView>(R.id.lv_movies)
-        adapter = MovieAdapter(MovieDummy.movies) { movie ->
-            val intent = BookingActivity.intent(this, movie.toIntentModel())
-            startActivity(intent)
-        }
-        listView.adapter = adapter
-    }
-
-    private fun initView() {
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_booking)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+    }
+
+    companion object {
+        private const val NAME_OF_VALUE = "movie"
+        fun intent(context: Context, movie: MovieIntentModel): Intent {
+            val intent = Intent(context, BookingActivity::class.java)
+            intent.putExtra(NAME_OF_VALUE, movie)
+            return intent
         }
     }
 }
