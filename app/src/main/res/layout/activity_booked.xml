@@ -35,12 +35,29 @@
         tools:text="@string/summary_movie_title" />
 
     <TextView
-        android:id="@+id/tv_booked_movie_screening_date"
-        style="@style/summaryMovieScreeningDateTextStyle"
+        android:id="@+id/tv_booked_movie_screening_date_time"
+        style="@style/summaryMovieScreeningDateTimeTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="@string/summary_movie_screening_date"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_booked_movie_title" />
+        tools:text="@string/summary_movie_screening_date" />
+
+    <TextView
+        android:id="@+id/tv_booked_movie_people_count"
+        style="@style/summaryMoviePeopleCountTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        app:layout_constraintStart_toEndOf="parent"
+        tools:text="일반 2명" />
+
+    <TextView
+        android:id="@+id/tv_booked_movie_total_amount"
+        style="@style/summaryMovieTotalAmountTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toEndOf="parent"
+        tools:text="26,000원(현장 결제)" />
 </LinearLayout>
