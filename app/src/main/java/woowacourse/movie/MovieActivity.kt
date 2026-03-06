@@ -1,6 +1,5 @@
 package woowacourse.movie
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.ListView
 import androidx.activity.enableEdgeToEdge
@@ -18,7 +17,7 @@ class MovieActivity : AppCompatActivity() {
         initView()
         val listView = findViewById<ListView>(R.id.lv_movies)
         adapter = MovieAdapter(MovieDummy.movies) { movie ->
-            val intent = SummaryActivity.intent(this, movie.toIntentModel())
+            val intent = BookedActivity.intent(this, movie.toIntentModel())
             startActivity(intent)
         }
         listView.adapter = adapter

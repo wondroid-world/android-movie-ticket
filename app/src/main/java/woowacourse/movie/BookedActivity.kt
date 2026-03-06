@@ -12,7 +12,7 @@ import woowacourse.movie.domain.Movie
 import woowacourse.movie.intent.MovieIntentModel
 import woowacourse.movie.intent.toDomain
 
-class SummaryActivity : AppCompatActivity() {
+class BookedActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initView()
@@ -34,7 +34,7 @@ class SummaryActivity : AppCompatActivity() {
 
     private fun initView() {
         enableEdgeToEdge()
-        setContentView(R.layout.activity_summary)
+        setContentView(R.layout.activity_booked)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.summary)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -45,7 +45,7 @@ class SummaryActivity : AppCompatActivity() {
     companion object {
         private const val NAME_OF_VALUE = "movie"
         fun intent(context: Context, movie: MovieIntentModel): Intent {
-            val intent = Intent(context, SummaryActivity::class.java)
+            val intent = Intent(context, BookedActivity::class.java)
             intent.putExtra(NAME_OF_VALUE, movie)
             return intent
         }
