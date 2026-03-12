@@ -19,7 +19,7 @@
             android:name=".view.BookedActivity"
             android:exported="false" />
         <activity
-            android:name=".view.MoviesActivity"
+            android:name=".view.movies.MoviesActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

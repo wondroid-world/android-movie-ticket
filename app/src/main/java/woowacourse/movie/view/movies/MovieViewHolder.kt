@@ -1,4 +1,4 @@
-package woowacourse.movie.view
+package woowacourse.movie.view.movies
 
 import android.view.View
 import android.widget.ImageView
@@ -9,13 +9,13 @@ import woowacourse.movie.domain.Movie
 class MovieViewHolder(
     private val view: View,
     private val movies: List<Movie>,
-    private val bookingClickListener: (Movie) -> Unit,
+    private val choiceClickListener: (Movie) -> Unit,
 ) {
     private var position = NO_POSITION
 
     init {
         view.findViewById<TextView>(R.id.tv_movie_book).setOnClickListener {
-            bookingClickListener(movies[position])
+            choiceClickListener(movies[position])
         }
     }
     private val title = view.findViewById<TextView>(R.id.tv_movie_title)

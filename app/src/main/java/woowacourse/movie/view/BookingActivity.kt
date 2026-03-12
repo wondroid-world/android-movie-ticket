@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -50,6 +51,14 @@ class BookingActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        savedInstanceState?.let {
+            count = it.getInt(COUNT)
+            val saveDate = it.getString(MOVIE_DATE)
+            val saveDateTime = it.getString(MOVIE_TIME)
+
+            if (saveDate != null) movieDate = LocalDate.parse(saveDate)
+            if (saveDateTime != null) movieTime = LocalDateTime.parse(saveDateTime)
+        }
         initView()
         initSpinner()
         initData()
@@ -209,10 +218,19 @@ class BookingActivity : AppCompatActivity() {
             }
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt(COUNT, count)
+        outState.putString(MOVIE_DATE, movieDate.toString())
+        outState.putString(MOVIE_TIME, movieTime.toString())
+    }
 
     companion object {
         private const val PEOPLE_COUNT_DEFAULT_VALUE: Int = 1
         private const val MOVIE = "movie"
+        private const val COUNT = "count"
+        private const val MOVIE_DATE = "movieDate"
+        private const val MOVIE_TIME = "movieTime"
         fun intent(context: Context, movie: MovieIntentModel): Intent {
             val intent = Intent(context, BookingActivity::class.java)
             intent.putExtra(MOVIE, movie)
